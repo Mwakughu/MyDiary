@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Diary</title>
+  <title>My Diary</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <tr>
-     <td>Date:</td>
-     <td><input type="text" name="date" id="date" autocomplete="off" value="yyyy-mm-dd" />
-     	<br><small>(yyyy-mm-dd hh:mm:ss)</small></td>
- </tr> 
+  <div class="New_Entry">
+    <div class="Diary_Entry">
+     Date:
+     <input type="text" name="date" id="date" autocomplete="off" value="yyyy-mm-dd" />
+    <br><small><font color="blue"><b>(yyyy-mm-dd hh:mm:ss)</b></font></small>
 
-  <br><tr>
-     <td> Title:</td>
+
+  <br>
+     <font color="#4CAF50">Title:</font>
      <link rel="stylesheet" href="style.css">
-     <td><input type=text name=etitle maxlength=200 id=etitle value="" autofocus>
-     <input id='savebutton1' type='submit' name='save' value="Save entry" class='btn btn-default'>
-     </td>
-  </tr></br>
+     <input type=text name=etitle maxlength=200 id=etitle value="" autofocus>
+  </br>
 
-  <tr>
-     <br><td>Entry: </td></tr>
-     <td>
-  <textarea name='entry' id='entry' rows='10' wrap='soft' required class='form-control' style='width:60%;'></textarea>
-  </td>
-    </tr>
-    
+  
+  <br>
+  <font color="#4CAF50">Entry:</font></br>
+  <textarea name='entry' id='entry' rows='10' wrap='soft' required class='form-control' style='width:60%;'></textarea><br>
+  <button onclick="check(this.form)">Save entry</button>
+  </div> 
+</div>
 </body>
 </html>
