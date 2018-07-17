@@ -16,9 +16,9 @@
 		</form class="login-form">
 
 		<form>
-			<input type="text" placeholder="user  name"/>
-			<input type="password" placeholder="password"/>	
-			<button>Log in</button>
+			<input type="text" placeholder="username" name="username" />
+			<input type="password" placeholder="password" name="password" />
+			<button onclick="check(this.form)">Log in</button>
 			<p class="message">Not Registered? <a href="#">Register</a> </p>
 		</form>
 	</div>	
@@ -31,6 +31,20 @@
 		$('.message a').click(function(){
 		$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 		});
+	</script>
+	
+	<script language="javascript">
+	function  check(form)
+	{
+		if (form.username.value== "Mwakughu" && form.password.value == "Peter") 
+		{
+			window.open("MainPage.html")
+		}
+		else
+		{
+			alert("Username/password is incorrect")
+		}
+	}
 	</script>
 </body>
 </html>
