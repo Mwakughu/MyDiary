@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<title>Main Page </title>
+ <link rel="stylesheet" href="style.css">
+<meta charset="windows-1252">
+<meta name="viewport" content ="width=device-width, initial-scale=1.0">
+   
+<style>
+
+.container{overflow:hidden}
+.tab{float: left;}
+.tab-2{margin-left: 50px}
+.tab-2 input{display:block;margin-bottom: 1 0px}
+.tr{transition:all .25s ease-in-out}
+.tr:hover{background-color:#EEE;cusor: pointer}
+
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="tab tab-1">
+			<font color="#4CAF50"><table id="table" border="0.1">
+			<tr><b><h2>My Diary Contents</h2></b>
+				<th>Date</th> 
+				<th>Title</th>
+				<th>Entry</th>
+			</tr>
+			</table><font>
+		</div>
+		<div class="tab tab-2">
+			<br><b>New diary entry<b></br>
+			<font color="#4CAF50">Date :</font><input type="text" name="date" id="date" placeholder="yyyy-mm-dd">
+			<font color="#4CAF50">Title:</font><input type="text" name="title" id="title">
+			<font color="#4CAF50">Entry :</font><input type="text"  name="entry" maxlength=200 id="entry" autofocus>
+
+			<br><button onclick="addHtmlTableRow();">Add</button></br>
+			<br><button onclick="editHtmlTableSelectedRow();">Edit</button></br>
+			<br><button onclick= "removeSelectedRow();">Remove</button></br>
+	</div>
+
+	<script>
+	var rowIndex,table = document.getElementById("table");
+
+	//add Row
+	function addHtmlTableRow(){ 
+
+//get the table by id
+//create a new row and cells
+//get value form input text
+//set the values into row cells
+
+	var table = document.getElementById("table"),
+		newRow = table.insertRow(table.length),
+		cell1 = newRow.insertCell(0),
+		cell2 = newRow.insertCell(1),
+		cell3 = newRow.insertCell(2),
+		date = document.getElementById("date").value,
+		title = document.getElementById("title").value,
+		 entry = document.getElementById("entry").value;
+
+	cell1.innerHTML = date;
+  	cell2.innerHTML = title;
+	cell3.innerHTML = entry;
+
+	selectedRowToInput();
+	}
+
+// display selected row data into input text
+	function selectedRowToInput()
+	{
+	
+	for(var i = 0; i < table.rows.length;i++)
+	{
+	table.rows[i].onclick = function()
+	{
+	//get the selected row index
+	rIndex = this.rowIndex;
+	document.getElementById("date").value= this.cells[0].innerHTML;
+	document.getElementById("title").value= this.cells[1].innerHTML;
+	document.getElementById("entry").value= this.cells[2].innerHTML;
+	};
+     }
+
+   }
+   selectedRowToInput();
+
+	function editHtmlTableSelectedRow()
+	{
+	var date = document.getElementById("date").value,
+	    title = document.getElementById("title").value,
+	    entry = document.getElementById("entry").value;
+
+	table.rows[rIndex].cells[0].innerHTML = date;
+	table.rows[rIndex].cells[1].innerHTML = title;
+	table.rows[rIndex].cells[2].innerHTML = entry;
+	}
+	
+	function removeSelectedRow(){
+		table.deleteRow(rIndex);
+	}
+
+
+	</script>
+</body>
+</html>
